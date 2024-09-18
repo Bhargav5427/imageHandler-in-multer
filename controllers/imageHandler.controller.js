@@ -14,7 +14,6 @@ const addImages = async (req, res) => {
       const result = await uploadImage(file.path, publicId);
       return result;
     });
-
     const uploadResults = await Promise.all(uploadPromises);
     const imageUrls = uploadResults.map((result) => result.secure_url);
 
@@ -37,7 +36,7 @@ const addImages = async (req, res) => {
   }
 };
 
-let getImage = async (req,res) => {
+let getImage = async (req, res) => {
   try {
     let result = await imageHandlerService.getImageService();
     if (!result) {
